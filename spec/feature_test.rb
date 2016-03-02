@@ -1,10 +1,10 @@
 require './lib/docking_station.rb'
 require './lib/bike.rb'
 
-docking_station = DockingStation.new
-
-
-
+# allow user to set @capacity when DockingStation.new is called
+capacity = 37
+docking_station = DockingStation.new(capacity)
+puts docking_station.capacity
 
 #puts docking_station.bikes.count
 
@@ -23,4 +23,3 @@ puts docking_station.bike
 # remove bike from docking station
 cycle = docking_station.release_bike
 puts docking_station.bike
-

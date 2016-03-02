@@ -2,8 +2,20 @@ require 'docking_station'
 require 'bike'
 
 describe DockingStation do
+    capacity = 37
 
     it { is_expected.to respond_to(:bikes)}
+    it { is_expected.to respond_to(:capacity)}
+
+    it "enables admin to set capacity of the dock" do
+      docking_station = DockingStation.new(capacity)
+      expect(docking_station.capacity).to eq capacity
+    end
+
+    it "checks default capacity" do
+      docking_station = DockingStation.new
+      expect(docking_station.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
 
     it 'expects bikes to be working' do
   		if subject.bikes.empty?
