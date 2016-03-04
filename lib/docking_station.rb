@@ -1,6 +1,6 @@
 class DockingStation
 
-  attr_reader :capacity :bikes
+  attr_reader :capacity, :bikes
 
   DEFAULT_CAPACITY = 20
 
