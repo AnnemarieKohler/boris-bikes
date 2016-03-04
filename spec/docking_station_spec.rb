@@ -1,20 +1,17 @@
 require 'docking_station'
 
 describe DockingStation do
-   #let(:station_instance) { DockingStation.new }
+   let(:station_instance) { DockingStation.new }
    let(:bike_instance) { Bike.new }
    let(:parked_bike) { subject.park_bike(bike_instance) }
 
   describe "initialize" do
-    #subject { DockingStation.new }
-    #let(:bike) {Bike.new }
     it 'defaults capacity' do
       described_class::DEFAULT_CAPACITY.times do
         subject.park_bike(bike_instance)
       end
       expect{ subject.park_bike(bike_instance)}.to raise_error 'NO MORE BIKES PLEASE'
       end
-    #it { is_expected.to respond_to(:station_instance).with(1).argument }
 
     it 'has a default capacity' do
       expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
@@ -62,7 +59,13 @@ describe DockingStation do
       DockingStation::DEFAULT_CAPACITY.times {subject.park_bike Bike.new}
       expect { parked_bike }.to raise_error "NO MORE BIKES PLEASE"
     end
-
   end
+
+  # describe '#remove_bike' do
+  #   it 'removes broken bike from station' do
+  #     bike_instance.broken?
+  #     expect(subject.park_bike(bike_instance)).not_to eq(bike_instance)
+  #   end
+  # end
 
 end

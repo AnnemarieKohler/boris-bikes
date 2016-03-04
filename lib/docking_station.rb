@@ -16,8 +16,8 @@ class DockingStation
 
   def park_bike(bike)
     raise "NO MORE BIKES PLEASE" if full?
-    bikes << bike
-    bikes.last
+      bikes << bike
+      bikes.last
   end
 
   private
