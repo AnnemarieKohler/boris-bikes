@@ -11,18 +11,18 @@ class DockingStation
 
   def release_bike
     raise "NO BIKES" if empty?
+    raise "BIKE IS BROKEN" if bikes.last.working == false
     bikes.pop
   end
 
-  def park_bike(bike)
+  def park_bike(bike, working=true)
     raise "NO MORE BIKES PLEASE" if full?
-      bikes << bike
-      bikes.last
+    bike.working if working == false
+    bikes << bike
+    bikes.last
   end
 
   private
-
-  #attr_accessor :bikes
 
   def full?
     bikes.length >= capacity
